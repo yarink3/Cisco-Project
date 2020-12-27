@@ -1,0 +1,221 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <title> Subreddit Maker </title>
+    </head>
+
+    <body>
+            <script type="text/javascript"> "stats.js"</script>
+
+      <header>
+          <h1>Welcome to "Subreddit Maker" !</h1>
+      </header>
+
+            <div class="row">
+                <h2> Here we can supply nice way to show some subreddit articles</h2>
+            </div>
+
+                <form method="post" action="" name="first_query" class="contact-form" enctype="multipart/form-data"  >
+                    
+                    <div class="row">
+                        <div >
+                        <label for="subreddit_name">Subreddit name:</label>
+                        </div>
+                    
+                        <div >
+                            <input type="text" name="subreddit_name" id="name" placeholder="for example: news" required>
+
+
+
+                        </div>
+                        
+                    </div>
+                    <label>&nbsp;</label>
+                    <div class="row">
+                        <div >
+                        <label for="num_of_articles" >How many articles do you want to load?:</label>
+                        </div>
+                    
+                        <div >
+                            <select name="num_of_articles" id=numbers>
+                                <script language="javascript" type="text/javascript"> 
+
+                                (function() { 
+                                    var elm = document.getElementById('numbers'), // get the select
+                                        df = document.createDocumentFragment(); // create a document 
+                                    for (var i = 1; i <= 100; i++) { 
+                                        var option = document.createElement('option'); // create the 
+                                        option.value = i; // set the value property
+                                        option.appendChild(document.createTextNode( i)); // set the 
+                                        df.appendChild(option); // append the option to the document fragment
+                                    }
+                                    elm.appendChild(df); // append the document fragment to the DOM. this is the better way rather than setting innerHTML a bunch of times (or even once with a long string)
+                                }());
+                                </script>
+                            
+                            </select>
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="row">
+                        <div >
+                        <label>&nbsp;</label>
+                        </div>
+
+                        <div >
+                            <input type="submit" value="SHOW ME THE ARTICLES">
+                        </div>
+                        </div>
+                        </form>
+                        <label>&nbsp;</label>
+                        <div >
+
+                        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                         {% if messages %}
+                            <div>
+                               {% for category,message in messages %}
+
+                                {% if(category=="link") %}
+                                    <p> <a href={{message}}> Here is a link to the full article</a></p>
+                                {% else %}
+                                    {% if(category=="new_line") %}
+                                        <br>
+                                    {% else %}
+                                        {% if(category=="error") %}
+                                            <p> {{message}}</p>
+                                        {% else %}
+                                                <p class={{category}}>{{ message }}</p>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                               {% endfor %}
+                            </div>
+                         {% endif %}
+                        {% endwith %}
+                            
+
+                        </div>
+                        
+                        
+
+                  
+                    <!-- </div> -->
+                
+
+    </body>
+     
+</html>
+    
+
+<style>
+
+/* --------------*/
+/* BASIC SETUP */
+/*--------------*/
+
+*{
+    margin:  0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html{
+    
+    background-color: white;
+    color: #5a5656;
+    font-family: 'Lato','Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+header{
+    text-align: center
+}
+
+
+
+
+/* --------------*/
+/* REUSABLE COMPONENTS */
+/*--------------*/
+
+
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+p.bold {
+  font-weight: 900;
+}
+
+/* -------HEADINGS--------- */
+
+h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2{
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+
+h2:after{
+    display: block;
+    height: 2px;
+    background-color: orange;
+    content: "";
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+
+
+/*----- FORM-----*/
+
+.contact-form,p{
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+
+input[type=submit]  {
+    display: inline-block ;
+    padding: 10px  30px  ;
+    color: aliceblue;
+    font-weight: 300;
+    font-size: 90%;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 1s, border 1s, color 1s;
+}
+
+input[type=submit]   {
+    background-color: orange;
+    border: 1px solid orange;
+    margin-right: 15px;
+    color: #fff;
+}
+
+input[type=submit]:hover,
+input[type=submit]:active{
+background-color: rgba(0, 157, 255, 0.78);
+}
+
+</style>
