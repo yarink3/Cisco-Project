@@ -12,7 +12,7 @@ The Subbredit Presenter is a full stack application to present Reddit.com subred
 
 
 ## General info
-This project uses Python flask , JavaScript and HTML in order to display information about the articles asked by the user.
+This project uses Python flask , JavaScript and HTML in order to display information about the articles of the subbredit asked by the user.
 
 ## Screenshots
 ![main web page](https://github.com/yarink3/subbredit-presenter/blob/main/Screenshot.png)
@@ -25,6 +25,7 @@ This project uses Python flask , JavaScript and HTML in order to display informa
 * install python 3 (or above)
 * install pip (sudo apt-get install python3-pip)
 * install flask (pip3 install Flask)
+* go to http://localhost:5000/
 
 
 ## Code Examples
