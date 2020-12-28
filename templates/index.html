@@ -1,0 +1,118 @@
+<!Doctype html>
+<html lang="en">
+        
+
+    <head>
+        <link rel="stylesheet"  href="static/styles/style.css">
+        <title> Subreddit Presenter </title>
+    </head>
+
+    <body>
+      <header>
+          <h1>Welcome to "Subreddit Presenter" !</h1>
+      </header>
+
+            <div class="row">
+                <h2> Here we can supply nice way to show some subreddit articles</h2>
+            </div>
+
+                <form method="post" action="" name="first_query" class="contact-form" enctype="multipart/form-data"  >
+                    
+                    <div class="row">
+                        <div >
+                        <label for="subreddit_name">Subreddit name:</label>
+                        </div>
+                    
+                        <div >
+                            <input type="text" name="subreddit_name" id="name" placeholder="for example: news" required>
+
+
+
+                        </div>
+                        
+                    </div>
+                    <label>&nbsp;</label>
+                    <div class="row">
+                        <div >
+                        <label for="num_of_articles" >How many articles do you want to load?:</label>
+                        </div>
+                    
+                        <div >
+                            <select name="num_of_articles" id=numbers>
+                                <script language="javascript" type="text/javascript"> 
+
+                                (function() { 
+                                    var elm = document.getElementById('numbers'), // get the select
+                                        df = document.createDocumentFragment(); // create a document 
+                                    for (var i = 1; i <= 100; i++) { 
+                                        var option = document.createElement('option'); // create the 
+                                        option.value = i; // set the value property
+                                        option.appendChild(document.createTextNode( i)); // set the 
+                                        df.appendChild(option); // append the option to the document fragment
+                                    }
+                                    elm.appendChild(df); // append the document fragment to the DOM. this is the better way rather than setting innerHTML a bunch of times (or even once with a long string)
+                                }());
+                                </script>
+                            
+                            </select>
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="row">
+                        <div >
+                        <label>&nbsp;</label>
+                        </div>
+
+                        <div >
+                            <input type="submit" value="SHOW ME THE ARTICLES">
+                        </div>
+                        </div>
+                        </form>
+                        <label>&nbsp;</label>
+                        <div >
+
+                        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                         {% if messages %}
+                            <div>
+                               {% for category,message in messages %}
+                                {% if(category=="author") %}
+                                    <p>Posted by <a href="https://www.reddit.com/user/{{message}}"> {{message}}</a></p>
+                                {% else %}
+                                    {% if(category=="link") %}
+                                        <p> <a href={{message}}> Here is a link to the full article</a></p>
+                                    {% else %}
+                                        {% if(category=="new_line") %}
+                                            <br>
+                                        {% else %}
+                                            {% if(category=="error") %}
+                                                <p> {{message}}</p>
+                                            {% else %}
+                                                    <p class={{category}}>{{ message }}</p>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                               {% endfor %}
+                            </div>
+                         {% endif %}
+                        {% endwith %}
+                            
+
+                        </div>
+                        
+                        
+
+                  
+                    <!-- </div> -->
+                
+
+    </body>
+     
+</html>
+    
+
+
+
