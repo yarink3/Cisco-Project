@@ -22,6 +22,7 @@ headers = {
 def get_date(time_in_utc):
     time_regular=time.strftime("%H:%M , %d.%m.%Y",time.gmtime(time_in_utc))
     return time_regular
+    
 def get_articles(subreddit,num_of_articles,after):
     id = 0
     message_lst=[]
