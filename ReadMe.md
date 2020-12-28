@@ -30,11 +30,6 @@ This project uses Python flask , JavaScript and HTML in order to display informa
 ## Code Examples
 
 `def get_articles(subreddit, num_of_articles):
-    """
-    :param subreddit: The name of the subreddit asked by the user. 
-    :param num_of_articles:  The number of articles asked by the user.
-    :return: messages - A list of strings representing the founded articles.
-    """
     id = 0
     message_lst = []
     params = (('limit', str(num_of_articles)),)
