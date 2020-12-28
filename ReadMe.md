@@ -68,7 +68,7 @@ This project uses Python flask , JavaScript and HTML in order to display informa
 
         return message_lst
 
-        ```
+```
 
 
 ## Features
