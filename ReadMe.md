@@ -9,6 +9,7 @@ The Subbredit Presenter is a full stack application to present Reddit.com subred
 * [Link to the website (UI version)](#link-to-website)
 * [Setup](#setup)
 * [How to run](#how-to-run)
+* [How it works](#how-it-works)
 * [Features](#features)
 * [Status](#status)
 
@@ -42,6 +43,11 @@ This project uses Python flask , JavaScript and HTML in order to display informa
 * To run the GUI version ,run
   python3 app.py
   go to http://localhost:5000/ and follow the instructions
+
+## How it works
+* A flask application created from 'app.py' , renders the template 'index.html' and creates a server.
+* The user fill the form - ask for a specific subreddit and the number of articles (up to 100), sent by post request to the server with the deatails.
+* The server converts the json from the reddit website, send it back to the client and the deatails being displayed to the user.
 
 ## Code Examples
 
