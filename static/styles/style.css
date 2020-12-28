@@ -1,0 +1,90 @@
+
+*{
+    margin:  0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html{
+    
+    background-color: white;
+    color: #5a5656;
+    font-family: 'Lato','Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+header{
+    text-align: center
+}
+
+.row{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+p.bold {
+  font-weight: 900;
+}
+
+/* -------HEADINGS--------- */
+
+h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2{
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+
+h2:after{
+    display: block;
+    height: 2px;
+    background-color: orange;
+    content: "";
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+/*----- FORM-----*/
+
+.contact-form,p{
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type=submit]  {
+    display: inline-block ;
+    padding: 10px  30px  ;
+    color: aliceblue;
+    font-weight: 300;
+    font-size: 90%;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 1s, border 1s, color 1s;
+}
+
+input[type=submit]   {
+    background-color: orange;
+    border: 1px solid orange;
+    margin-right: 15px;
+    color: #fff;
+}
+
+input[type=submit]:hover,
+input[type=submit]:active{
+background-color: rgba(0, 157, 255, 0.78);
+}

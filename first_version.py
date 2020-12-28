@@ -1,5 +1,4 @@
 import json
-
 import requests
 import time
 
@@ -18,16 +17,12 @@ headers = {
     'accept-language': 'en-US,en;q=0.9,he-IL;q=0.8,he;q=0.7,lb;q=0.6',
 }
 
-num_of_articles=10
-params = (
-    ('limit', str(num_of_articles)),
-)
 
 def get_date(time_in_utc):
     time_regular=time.strftime("%H:%M , %d.%m.%Y",time.gmtime(time_in_utc))
     return time_regular
 
-def get_response(subreddit,after):
+def get_response(subreddit,after,params):
     if (after == None):
         response = requests.get(f'https://www.reddit.com/r/{subreddit}/.json', headers=headers, params=params)
     else:
@@ -55,14 +50,13 @@ def get_response(subreddit,after):
 
     return [subreddit, json_respone, datas_children]
 
-
-
-def get_articles(subreddit):
+def get_articles(subreddit,num_of_articles):
     id = 0
     after=None
+    params = (('limit', str(num_of_articles)),)
     while(True):
         try:
-            [subreddit, json_respone, datas_children]=get_response(subreddit,after)
+            [subreddit, json_respone, datas_children]=get_response(subreddit,after,params)
             after=json_respone['data']['after']
             dict = {}
             for item in datas_children:
@@ -74,20 +68,13 @@ def get_articles(subreddit):
                         "Url:": item['data']['url'],
                         "Posted at:":get_date(int(item['data']['created_utc'])),
                         "Score":item['data']['score'],
-
-
-
                         } ]
                 article = article[0]
                 dict[f"Article {str(id)}"]=article
-
-
-
                 id=id+1
             j = json.dumps(dict)
             parsed = json.loads(j)
             print(json.dumps(parsed, indent=2))
-            # print(dict.keys())
 
             print( "\nThat is all for now, show the next articles? (Y/N) ")
             user_input=input().lower();
@@ -114,15 +101,17 @@ def get_articles(subreddit):
             print("The subbrediit you looked for wasn't found, lets try again ")
             print("Please enter a subreddit name ")
             subreddit = input()
-
-
+            print("How many articles? ")
+            num_ofarticles=input()
 
 if(__name__=="__main__"):
     print("Please enter a subreddit name ")
     subreddit=input()
+    print("How many articles? ")
+    num_of_articles=input()
     another_subreddit=True
     while(another_subreddit):
-        another_subreddit= get_articles(subreddit)
+        another_subreddit= get_articles(subreddit,num_of_articles)
         if(another_subreddit):
             print("Please enter a subreddit name ")
             subreddit = input()
