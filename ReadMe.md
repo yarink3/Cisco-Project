@@ -40,7 +40,6 @@ This project uses Python flask , JavaScript and HTML in order to display informa
     params = (('limit', str(num_of_articles)),)
     while (True):
         try:
-
             response = requests.get(f'https://www.reddit.com/r/{subreddit}/.json', headers=headers, params=params)
             json_respone = response.json()
             datas_children = json_respone['data']['children']
@@ -52,10 +51,8 @@ This project uses Python flask , JavaScript and HTML in order to display informa
                     "Url": item['data']['url'],
                     "Posted at": get_date(int(item['data']['created_utc'])),
                     "Score": item['data']['score'],
-
                 }]
                 article = article[0]
-
                 message_lst.append(f"Article number {str(article['id'] + 1)}:\n ")
                 message_lst.append(f"Title: {article['Title']}")
                 message_lst.append(f"by  {article['Author']}/")
@@ -64,11 +61,8 @@ This project uses Python flask , JavaScript and HTML in order to display informa
                 message_lst.append(f"Has a score of {article['Score']} \n")
                 message_lst.append("\n")
                 id = id + 1
-
-
         except:
             return ["wrong subreddit name, Please try again"]
-
         return message_lst`
 
 
