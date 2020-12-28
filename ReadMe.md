@@ -6,8 +6,9 @@ The Subbredit Presenter is a full stack application to present Reddit.com subred
 * [General info](#general-info)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
+* [Link to the website (UI version)](#link-to-website)
 * [Setup](#setup)
-* [How to run](#How-to-run)
+* [How to run](#how-to-run)
 * [Features](#features)
 * [Status](#status)
 
@@ -23,21 +24,24 @@ This project uses Python flask , JavaScript and HTML in order to display informa
 * Server - Python (3.7) flask
 * Client - JavaScript, HTML
 
+## Link to the website (UI version)
+* https://yarin-kagal.herokuapp.com/
+
 ## Setup
 * install python 3 (or above)
 * install pip (sudo apt-get install python3-pip)
 * install flask (pip3 install Flask)
 
 ## How to run
-*On terminal run:
+* On terminal run:
  git clone https://github.com/yarink3/subreddit-presenter.git
  cd subreddit-presenter
-*This Project has 2 version, command line version and GUI version.
-*To run the command line version ,run:
+* This Project has 2 version, command line version and GUI version.
+* To run the command line version ,run:
  first_version.py
-*To run the GUI version ,run
- python3 app.py
- go to http://localhost:5000/ and follow the instructions
+* To run the GUI version ,run
+  python3 app.py
+  go to http://localhost:5000/ and follow the instructions
 
 ## Code Examples
 
@@ -84,7 +88,6 @@ This project uses Python flask , JavaScript and HTML in order to display informa
 
 
 ## Features
-List of features ready and TODOs for future development
 * Rest API - to communicate between the server and the client.
 
 ## Status
