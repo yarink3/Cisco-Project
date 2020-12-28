@@ -32,7 +32,7 @@ This project uses Python flask , JavaScript and HTML in order to display informa
 * install python 3 (or above)
 * install pip (sudo apt-get install python3-pip)
 * install flask (pip3 install Flask)
-
+ 
 ## How to run
 * On terminal run:
  git clone https://github.com/yarink3/subreddit-presenter.git
